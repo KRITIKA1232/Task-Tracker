@@ -65,7 +65,6 @@ bash
 Copy code
 npm run dev
 3️⃣ Open in browser
-arduino
 Copy code
 http://localhost:5173
 ```
