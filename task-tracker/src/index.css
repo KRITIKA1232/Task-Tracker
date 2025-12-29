@@ -1,0 +1,35 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background: #4a4a4a;
+  margin: 0;
+  font-weight: 800;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #a1a1a1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input, select, button {
+  padding: 8px;
+  margin: 5px;
+}
+
+button {
+  background-color: rgb(4, 15, 24);
+  color: white;
+  cursor: pointer;
+}
+
+.status-done {
+  color: rgb(25, 116, 53);
+  font-weight: bold;
+}
+
+.status-pending {
+  color: rgb(218, 10, 10);
+}
+
