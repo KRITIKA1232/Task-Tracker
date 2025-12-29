@@ -1,75 +1,75 @@
-# React + TypeScript + Vite
+# 📝 Task Tracker App (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and efficient **Task Tracker application** built using **React, TypeScript, and Vite**.  
+This project demonstrates clean component architecture, state management with hooks, debounced search, filtering, sorting, and data persistence using a mock API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- ➕ Add new tasks with title and due date
+- 🗑️ Delete tasks
+- 🔄 Update task status (Pending / Done)
+- 🔍 Search tasks with **debounce** for performance
+- 🎯 Filter tasks by status (All / Pending / Done)
+- 🔃 Sort tasks by due date or name
+- 💾 Persistent data using **localStorage (Mock API)**
+- ⚡ Built with **React Hooks & TypeScript**
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React**
+- **TypeScript**
+- **Vite**
+- **HTML & CSS**
+- **localStorage (Mock API)**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Application Workflow
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. The application starts from `main.tsx`, which renders the `App` component.
+2. `App.tsx` holds the main state for tasks, filters, search, and sorting.
+3. UI components receive data and setter functions as props.
+4. User actions (add, delete, update) modify state in `App.tsx`.
+5. Changes are persisted using a mock API implemented with `localStorage`.
+6. The UI automatically re-renders based on updated state.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🔧 Mock API Implementation
+
+The mock API is implemented using `localStorage` inside a service layer.
+
+**File:** `src/services/taskService.ts`
+
+- `getTasks()` simulates fetching tasks (GET)
+- `saveTasks(tasks)` simulates saving tasks (POST / PUT / DELETE)
+
+This approach mimics real-world API behavior and keeps data logic separate from UI components.
+
+---
+
+## ⏱️ Debounced Search
+
+A reusable custom hook `useDebounce` is implemented to delay search execution and improve performance by avoiding unnecessary re-renders on every keystroke.
+
+
+### 1️⃣ Install dependencies
+```bash
+npm install
+2️⃣ Run the development server
+bash
+Copy code
+npm run dev
+3️⃣ Open in browser
+arduino
+Copy code
+http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Live Demo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+https://kriteekas-task-tracker.vercel.app/
